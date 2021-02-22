@@ -8,10 +8,11 @@ import os
 
 def data(path):  
     df = pd.read_csv(path,sep=";")
-    return
+    return df
 
 
-def eda(df):
+def eda(df,outdir):
+    
     df2 = df.copy()
     df2['age'] = (df2['age'] / 365).round().astype('int')
     
@@ -38,8 +39,6 @@ def eda(df):
     gender= plt.figure()
     sns.countplot(x='gender', hue='cardio', data = df)
     
-    df.hist()
-    
     corr = df.corr()
     corrPlot= plt.figure()
     sns.heatmap(corr, annot=True)
@@ -63,22 +62,39 @@ def eda(df):
     plt.plot(line_x1, line_y1, color='r')
     plt.plot(line_x2, line_y2, color='r')
     
+    fp1= os.path.join(outdir, 'ageGroup.png')
+    ageGroup.savefig(fp1)
     
-    ageGroup.savefig('../test/testoutput/ageGroup.png')
-    ageBox.savefig('../test/testoutput/ageBox.png')
-    cardioFeature.savefig('../test/testoutput/cardioFeature.png')
-    noncardioFeature.savefig('../test/testoutput/noncardioFeature.png')
-    gender.savefig('../test/testoutput/gender.png')
-    ponderIndex.savefig('../test/testoutput/ponderIndex.png')
-    PIScatter.savefig('../test/testoutput/PIScatter.png')
-    #histplot.figure.savefig('../data/out/hist.png')
-    corrPlot.savefig('../test/testoutput/corrPlot.png')
-       
+    fp2= os.path.join(outdir, 'ageBox.png')
+    ageBox.savefig(fp2)
+    
+    fp3= os.path.join(outdir, 'cardioFeature.png')
+    cardioFeature.savefig(fp3)
+    
+    fp4= os.path.join(outdir, 'noncardioFeature.png')
+    noncardioFeature.savefig(fp4)
+    
+    fp5= os.path.join(outdir, 'gender.png')
+    gender.savefig(fp5)
+    
+    fp6= os.path.join(outdir, 'ponderIndex.png')
+    ponderIndex.savefig(fp6)
+    
+    fp7= os.path.join(outdir, 'PIScatter.png')
+    PIScatter.savefig(fp7)
+    
+    fp8= os.path.join(outdir, 'corrPlot.png')
+    corrPlot.savefig(fp8)
+    
+    fp9= os.path.join(outdir, 'hist.png')
+    df.hist()
+    plt.savefig(fp9)
+    
     return
 
 
-
-def describe(df):
+def describe(df,outdir):
     df['age'] = (df['age']/365).round().astype('int')
-    df.describe().to_csv("../test/testoutput/description.csv")
+    fp10 = os.path.join(outdir, 'description.csv')
+    df.describe().to_csv(fp10)
     return
