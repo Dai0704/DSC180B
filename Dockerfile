@@ -8,7 +8,7 @@ FROM $BASE_CONTAINER
 LABEL maintainer="UC San Diego ITS/ETS <ets-consult@ucsd.edu>"
 
 USER root
-RUN pip install --no-cache-dir pandas numpy scikit-learn matplotlib seaborn os
+RUN pip install --no-cache-dir pandas numpy scikit-learn matplotlib seaborn
 
 COPY /run_jupyter.sh /
 RUN chmod 755 /run_jupyter.sh
