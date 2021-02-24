@@ -24,6 +24,7 @@ def plot_TPR_FPR(FPR_lst, TPR_lst,outdir):
     plt.ylabel('True Positive Rate',fontsize=15)
     plt.title('TPR vs. FPR',fontsize=15)
     plt.savefig(fp1)
+    plt.show()
     
     
     
@@ -38,6 +39,7 @@ def plot_TPR_FDR(TPR_lst, FDR_lst,outdir):
     plt.ylabel('True Positive Rate',fontsize=15)
     plt.title('TPR vs. FDR',fontsize=15)
     plt.savefig(fp2)
+    plt.show()
 
     
 ## helper function
@@ -75,13 +77,14 @@ def plot_rates(threshold, FPR_lst, TPR_lst, FDR_lst,outdir):
     plt.legend()
     # Display a figure.
     plt.savefig(fp3)
+    plt.show()
 
     
 def prediction_model(path,outdir):
     
     #df = pd.read_csv(path, sep=';')
     df = path
-    X = df.drop(['cardio',',id'], axis=1)
+    X = df.drop(['cardio'], axis=1)
     y = df['cardio']
 
     

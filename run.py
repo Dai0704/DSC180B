@@ -12,11 +12,11 @@ from model import plot_TPR_FPR,plot_TPR_FDR,plot_rates,prediction_model
 
 def main(targets):
 
-    testin_config = json.load(open('config/testin-params.json'))
-    testout_config = json.load(open('config/testout-params.json'))
-    data_config = json.load(open('config/data-params.json'))
-    eda_config = json.load(open('config/eda-params.json'))
-    model_config = json.load(open('config/model-params.json'))
+    testin_config = json.load(open("config/testin-params.json"))
+    testout_config = json.load(open("config/testout-params.json"))
+    data_config = json.load(open("config/data-params.json"))
+    eda_config = json.load(open("config/eda-params.json"))
+    model_config = json.load(open("config/model-params.json"))
 
     if 'data' in targets:
 
@@ -24,20 +24,14 @@ def main(targets):
 
     if 'eda' in targets:
 
-        try:
-            data
-        except NameError:
-            df = pd.read_csv(data_config['path'])
+        df = data(**data_config)
 
         eda(df, **eda_config)
         describe(df, **eda_config)
         
     if 'model' in targets:
 
-        try:
-            data
-        except NameError:
-            df = pd.read_csv(data_config['path'])
+        df = data(**data_config)
         
         prediction_model(df, **model_config)
 
