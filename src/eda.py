@@ -50,7 +50,8 @@ def eda(df,outdir):
     ponderIndex = plt.figure()
     sns.countplot(x='PIGroup', hue='cardio', data = df2)
     
-    df2['ponderIndex'].describe().to_csv("../test/testoutput/ponderIndex.csv")
+    fp0 = os.path.join(outdir,"ponderIndex.csv")
+    df2['ponderIndex'].describe().to_csv(fp0)
     
      
     line_x1 = np.linspace(50, 250, 1000)
