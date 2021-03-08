@@ -7,12 +7,13 @@ The function will return the eda statistic, various plots that show the differen
 
 The congfig folder contains one json files for the use of functions' parameters. 
 
+URL to our webpage: https://larryzly.github.io/CardiovascularClassifier/
 ```
 ### Responsibilities
 
 All the work and code are produced after our group discussion.
 * Wentaon Chen developed the run.py and found out how to set the paths for the scripts
-* Leyang Zhang developed some functions of functions.R and upload the reports and datasets
-* Zimin Dai developed functions in functions.R and built the structure for the repository, docker image
+* Leyang Zhang developed some functions of model.py and upload the reports and datasets
+* Zimin Dai developed functions in model.py and built the structure for the repository, docker image
 ```
 
